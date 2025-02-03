@@ -115,15 +115,16 @@
             }
         }
 	.logo {
+            display: block;
             max-width: 150px;
-            margin-bottom: 20px;
+            margin: 0 auto 20px auto;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-	    <img src="logo.jpg" alt="Logo" class="logo">
+	    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo">
 	    <h1>Hello DevOps Engineers,<br>Congrats! on deploying new App with (Flask and MYSQL)<br>---( TODO LIST APP )---</h1>
         <div class="messages">
             {% for message in messages %}
