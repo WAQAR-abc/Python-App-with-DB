@@ -10,6 +10,7 @@ Before you begin, make sure you have the following installed:
 - Docker
 - Git (optional, for cloning the repository)
 
+
 ## Setup
 
 1. Clone this repository (if you haven't already):
@@ -21,6 +22,7 @@ Before you begin, make sure you have the following installed:
    ```bash
    cd Python-App-with-DB
    ```
+
    
 ## Run the App using Docker-Compose
 
@@ -35,7 +37,8 @@ Before you begin, make sure you have the following installed:
 
 2. Access the Flask app in your web browser:
 
-   - Todo List App: http://localhost:5000  or  http://your-local-ip:5000
+- Todo List App: http://localhost:5000  or  http://your-local-ip:5000
+
 
 ## Cleaning Up
 
@@ -52,6 +55,7 @@ Also you'll see compose have also created the folder "mysql-data" to store data,
 ```bash
 rm -rf mysql-data
 ```
+
 
 ## Run the App without using Docker-Compose
 
@@ -93,10 +97,9 @@ docker run -d \
 
 ```
 
+
 ## Notes
 
 - This is a basic setup for demonstration purposes. In a production environment, you should follow best practices for security and performance.
 
 - If you encounter issues, check Docker logs and error messages for troubleshooting.
-
-```
