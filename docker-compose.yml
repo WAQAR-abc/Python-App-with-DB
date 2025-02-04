@@ -2,35 +2,35 @@ version: "3.8"
 
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0.27
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: todo_app_db
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin123
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "todo_app_db"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "admin123"
     volumes:
       - ./mysql-data:/var/lib/mysql
       - ./message.sql:/docker-entrypoint-initdb.d/message.sql  
     networks:
-      - twotier
+      - todo-net
 
-  flask-app:
+  todo-app:
     build:
       context: .
-    container_name: flask-app
+    container_name: todo-app
     ports:
       - "5000:5000"
     environment:
-      MYSQL_HOST: mysql
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin123
-      MYSQL_DB: todo_app_db
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin123
+      - MYSQL_DB=todo_app_db
     depends_on:
       - mysql
     networks:
-      - twotier
+      - todo-net
     restart: always
 
 networks:
-  twotier:
+  todo-net:
